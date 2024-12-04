@@ -5,10 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="type-color.css">
 </head>
-<body>
-    <h1>Pokédex</h1>
-    
+<body onload="init()">
+    <header class="d_flex">
+        <h1>Pokédex</h1>
+        <input type="text" id="finder_input" placeholder="Finde Pokémon...">
+    </header>
+    <main>
+        <div class="bg">
+            <div class="d_flex_etc" id="pokedex"></div>
+        </div>
+    </main>
     <script src="script.js"></script>
+
+
+
 </body>
 </html>
