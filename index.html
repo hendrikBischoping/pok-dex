@@ -6,20 +6,30 @@
     <title>Pokédex</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="type-color.css">
+    <link rel="shortcut icon" href="./content/img/favicon.ico" type="image/x-icon">
 </head>
 <body onload="init()">
-    <header class="d_flex">
-        <h1>Pokédex</h1>
-        <input type="text" id="finder_input" placeholder="Finde Pokémon...">
-    </header>
-    <main>
-        <div class="bg">
-            <div class="d_flex_etc" id="pokedex"></div>
+    <header>
+        <div class="p160">
+            <h1>Pokédex</h1>
+            <input type="text" id="finder_input" placeholder="Finde Pokémon..." onkeyup="findPokemon()">
         </div>
+    </header>
+    <main class="bg">
+        <div class="p160">
+            <div class="d_flex_etc" id="pokedex"></div>
+            <div class="d_none" id="loading_spinner">
+                <img src="./content/gif/spinning-ball.gif" alt="...loading">
+            </div>
+            <div class="d_none"id="poke_info" onclick="closeInfo(event)">
+
+            </div>
+        </div>
+        <div class="morePkmn">
+            <button id="more_pkmn" onclick="init()">+30 Pokémon</button>
+        </div>
+        <div class="d_none" id="find_pokedex"></div>
     </main>
     <script src="script.js"></script>
-
-
-
 </body>
 </html>
