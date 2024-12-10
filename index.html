@@ -10,7 +10,7 @@
 </head>
 <body onload="init()">
     <header>
-        <div class="p160">
+        <div class="header_content p160">
             <h1>Pokédex</h1>
             <input type="text" id="finder_input" placeholder="Finde Pokémon..." onkeyup="findPokemon()">
         </div>
@@ -21,15 +21,22 @@
             <div class="d_none" id="loading_spinner">
                 <img src="./content/gif/spinning-ball.gif" alt="...loading">
             </div>
-            <div class="d_none"id="poke_info" onclick="closeInfo(event)">
+            <div class="d_none"id="poke_info" onclick="removePkmnInfo(event)">
 
             </div>
         </div>
         <div class="morePkmn">
-            <button id="more_pkmn" onclick="init()">+30 Pokémon</button>
+            <button class="d_flex" id="more_pkmn" onclick="init()"><p class="btn_text">+ 30 Pokémon </p><img class="pokeball" src="./content/img/pokeball.png" alt="pokeball"></button>
         </div>
         <div class="d_none" id="find_pokedex"></div>
     </main>
     <script src="script.js"></script>
+    <script src="template.js"></script>
 </body>
 </html>
+<table>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
