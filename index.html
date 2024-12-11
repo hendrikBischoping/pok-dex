@@ -6,17 +6,19 @@
     <title>Pokédex</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="type-color.css">
+    <link rel="stylesheet" href="media-queries.css">
     <link rel="shortcut icon" href="./content/img/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body onload="init()">
+<body  class="bg" onload="init()">
     <header>
         <div class="header_content p160">
             <h1>Pokédex</h1>
             <input type="text" id="finder_input" placeholder="Finde Pokémon..." onkeyup="findPokemon()">
         </div>
     </header>
-    <main class="bg">
-        <div class="p160">
+    <main>
+        <div class="general_content p160">
             <div class="d_flex_etc" id="pokedex"></div>
             <div class="d_none" id="loading_spinner">
                 <img src="./content/gif/spinning-ball.gif" alt="...loading">
@@ -34,9 +36,3 @@
     <script src="template.js"></script>
 </body>
 </html>
-<table>
-    <tr>
-        <td></td>
-        <td></td>
-    </tr>
-</table>

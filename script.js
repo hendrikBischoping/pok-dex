@@ -38,7 +38,7 @@ function renderPokedex(){
         pokeName = pokeName.charAt(0).toUpperCase() + pokeName.slice(1).toLowerCase();
         let pokeType = pokedex[inDex]['data']['types'][0]['type']['name'];
         pokedexRef.innerHTML += pokecardTemplate(pokeType, inDex, pokeName);
-     }
+    }
 }
 
 function toggleLoadingSpinner(){
@@ -112,6 +112,7 @@ function renderPokeInfo(inDex){
     let pokeSpeed = pokedex[inDex]['data']['stats'][5]['base_stat'];
     pokeInfoRef.innerHTML = ""; 
         pokeInfoRef.innerHTML += singleCardTemplate(inDex, pokeName, pokeType, pokeHp, pokeAttack, pokeDefense, pokeSpecialAttack, pokeSpecialDefense, pokeSpeed)
+        renderStats(pokeHp, pokeAttack, pokeDefense, pokeSpecialAttack, pokeSpecialDefense, pokeSpeed)
         addPkmnInfo(inDex)
 }
 
@@ -159,5 +160,47 @@ function stopBubbling(event) {
 
 function toggleStats(inDex){
     let statsTable = document.getElementById (`stats_table_${inDex}`)
-    statsTable.classList.toggle ('d_none')
+    statsTable.classList.remove ('d_none')
+    let cardAudios = document.getElementById (`card_audios_${inDex}`)
+    cardAudios.classList.add ('d_none')
+}
+
+function toggleAudios(inDex){
+    let cardAudios = document.getElementById (`card_audios_${inDex}`)
+    cardAudios.classList.remove ('d_none')
+    let statsTable = document.getElementById (`stats_table_${inDex}`)
+    statsTable.classList.add ('d_none')
+}
+
+function loadTypes(inDex){
+    let typesArray = pokedex[inDex]['data']['types'];
+    if (typesArray.length > 1) {
+        let typeTwo = pokedex[inDex]['data']['types'][1]['type']['name'];
+        return typeTwo;
+    };
+}
+
+function renderStats(pokeHp, pokeAttack, pokeDefense, pokeSpecialAttack, pokeSpecialDefense, pokeSpeed){
+    var data = [pokeHp, pokeAttack, pokeDefense, pokeSpecialAttack, pokeSpecialDefense, pokeSpeed];
+    const labels = ["HP", "ATTACK", "DEFENSE", "SPECIAL ATTACK", "SPECIAL DEFENSE", "SPEED"];
+        const maxData = Math.max(...data);
+    
+        const svg = document.getElementById('chart');
+        const barHeight = 16;
+        const barSpacing = 4;
+
+        data.forEach((value, index) => {
+            const barWidth = (value / maxData) * 250;
+            const x = 20;
+            const y = index * (barHeight + barSpacing) + 20;
+        svg.innerHTML += `
+        <text x="36" y="${y + barHeight / 2 + 5}" class="label">${labels[index]}</text>  
+    `;
+    svg.innerHTML += `
+        <rect x="${x+10}" y="${y}" width="${barWidth}" height="${barHeight}" class="bar"></rect>
+    `;
+    svg.innerHTML += `
+        <text x="${x-20}" y="${y + barHeight / 2 + 5}" class="value">${data[index]}</text>
+    `;
+});
 }

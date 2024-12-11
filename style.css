@@ -1,11 +1,16 @@
 /* GENERAL STYLE */
+
 header {
     background-image: linear-gradient( rgb(230, 185, 8), rgb(230, 185, 8), rgb(230, 185, 8), red);
-}
+    }
+
 .header_content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
 }
 h1 {
     font-size: 64px;
@@ -25,11 +30,14 @@ h1 {
     border-radius: 25px;
 }
 body {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .bg {
     background-color: rgb(50, 52, 53);
+    min-height: 80vh;
 }
 .d_flex {
     display: flex;
@@ -85,7 +93,7 @@ body {
 }
 .single_card {
     padding: 16px;
-    height: 560px;
+    height: 590px;
     width: 540px;
     border-radius: 32px;
 }
@@ -132,22 +140,56 @@ body {
     scale: 1.1;
     overflow: hidden;
 }
-.poke_infos{
+.poke_infos {
+    height: 240px;
+    padding: 16px;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.stats_hl {
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 24px;
+}
+.stats_hl:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8);
+
+}
+.stats_content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+}
+.card_nav {
+    display: flex;
+    justify-content: space-around;
+}
+.single_sound {
+    width: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 audio {
-    opacity: 0.3;
+    opacity: 0.4;
     height: 32px;
     width: 240px;
 }
+audio:hover {
+    opacity: 0.8;
+}
 
 /* SPECIAL STYLES */
+.general_content{
+    display: flex;
+    justify-content: center;
+}
 
 #pokedex {
     justify-content: center;
     flex-flow: row wrap;
+    max-width: 1440px;
 }
 .pokeCard {
     border: solid 2px gray;
@@ -171,6 +213,14 @@ audio {
 .pokeCard h2 {
     font-size: 12px;
     text-align: center;
+}
+.close_btn {
+    font-size: 24px;
+}
+.close_btn:hover {
+    cursor: pointer;
+    scale: 1.4;
+    overflow: hidden;
 }
 .pokePic {
     height: 150px;
@@ -207,3 +257,16 @@ audio {
     height: 55px;
 }
 
+
+svg {
+    background-color: #f9f9f900;
+}
+.bar {
+    fill: rgba(3, 70, 8, 0.4);
+    transition: fill 2s;
+    border-radius: 4px;
+}
+.label {
+    font-size: 12px;
+    text-anchor: start;
+}
