@@ -1,0 +1,24 @@
+/* src/styles.scss */
+* {
+  margin: 0;
+}
+.fontRalewas {
+  font-family: "Raleway";
+}
+@font-face {
+  font-display: swap;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./media/raleway-v34-latin-regular.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./media/raleway-v34-latin-700.woff2") format("woff2");
+}
+
+/* angular:styles/global:styles */
+/*# sourceMappingURL=styles.css.map */
