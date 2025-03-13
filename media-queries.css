@@ -2,14 +2,17 @@
     header {
         top: -40px;
     }
+
     h1 {
         font-size: 48px;
         -webkit-text-stroke: 4px rgb(61, 88, 159);
     }
+
     #finder_input {
         width: 160px;
         height: 28px;
     }
+
     .single_card {
         width: 440px;
     }
@@ -19,17 +22,21 @@
     header {
         top: -30px;
     }
+
     h1 {
         font-size: 36px;
         -webkit-text-stroke: 2px rgb(61, 88, 159);
     }
+
     #finder_input {
         width: 140px;
         height: 16px;
     }
+
     .single_card {
         width: 420px;
     }
+
     #chart {
         width: 300px;
         height: 150px;
@@ -40,12 +47,15 @@
     header {
         top: -15px;
     }
+
     .header_content {
         flex-direction: column;
     }
+
     h1 {
         margin: 12px 0px;
     }
+
     #finder_input {
         margin-bottom: 8px;
     }
@@ -55,70 +65,89 @@
     .single_pokePic {
         width: 200px;
     }
+
     .single_card {
         width: 320px;
         height: 562px;
     }
+
     .single_card_header {
         height: 48px;
     }
+
     .stats_hl {
         padding: 6px;
         font-size: 12px;
     }
+
     .poke_infos {
         height: 218px;
     }
+
     .single_sound {
         width: 324px;
     }
+
     audio {
         height: 24px;
         width: 184px;
     }
 }
+
 @media (max-width: 400px) {
     .single_card {
         width: 280px;
         height: 474px;
     }
+
     .single_pokePic {
         width: 160px;
     }
+
     #chart {
         width: 260px;
         padding: 8px;
     }
+
     .poke_infos {
         height: 170px;
     }
+
     .bar {
         scale: 0.8;
     }
+
     .value {
         scale: 0.8;
     }
+
     .label {
         scale: 0.8;
     }
+
     .single_sound {
         width: 270px;
     }
 }
+
 @media (max-width: 360px) {
     .single_card {
         width: 240px;
     }
+
     #chart {
         width: 230px;
     }
+
     .poke_infos {
         height: 170px;
-    }    
+    }
+
     .single_sound {
         width: 270px;
         flex-direction: column;
     }
+
     h4 {
         margin: 8px 0px;
     }

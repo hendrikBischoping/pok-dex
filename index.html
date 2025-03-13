@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,8 @@
     <link rel="shortcut icon" href="./content/img/favicon.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body  class="bg" id="body" onload="init()">
+
+<body class="bg" id="body" onload="init()">
     <header>
         <div class="header_content p160">
             <h1>Pokédex</h1>
@@ -27,12 +29,15 @@
             <div class="d_none" id="loading_spinner">
                 <img src="./content/gif/spinning-ball.gif" alt="...loading">
             </div>
-            <div class="d_none"id="poke_info" onclick="removePkmnInfo(event)">
+            <div class="d_none" id="poke_info" onclick="removePkmnInfo(event)">
 
             </div>
         </div>
         <div class="morePkmn">
-            <button class="d_flex" id="more_pkmn" onclick="init()"><p class="btn_text">+ 30 Pokémon </p><img class="pokeball" src="./content/img/pokeball.png" alt="pokeball"></button>
+            <button class="d_flex" id="more_pkmn" onclick="init()">
+                <p class="btn_text">+ 30 Pokémon </p><img class="pokeball" src="./content/img/pokeball.png"
+                    alt="pokeball">
+            </button>
         </div>
         <div class="d_none" id="find_pokedex"></div>
     </main>
@@ -40,4 +45,5 @@
     <script src="template.js"></script>
     <script src="template.js"></script>
 </body>
+
 </html>
