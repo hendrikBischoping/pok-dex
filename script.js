@@ -125,8 +125,6 @@ function toggleScrolling(){
     let content = document.getElementById('body');
     if (isOpened) {
         content.classList.add ('prevent_scrolling');
-        console.log('open');
-        
     } else {body.classList.remove ('prevent_scrolling');}
 }
 
