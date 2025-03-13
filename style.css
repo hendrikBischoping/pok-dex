@@ -4,8 +4,8 @@ header {
     position: sticky;
     top: -50px;
     z-index: 1;
-    background-image: linear-gradient( rgb(230, 185, 8), rgb(230, 185, 8), rgb(230, 185, 8), red);
-    }
+    background-image: linear-gradient(rgb(230, 185, 8), rgb(230, 185, 8), rgb(230, 185, 8), red);
+}
 
 .header_content {
     display: flex;
@@ -15,14 +15,16 @@ header {
     margin-right: auto;
     max-width: 1440px;
 }
+
 h1 {
     font-size: 64px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 800;
-    color: rgb(255,203,3);
-    -webkit-text-stroke: 5px rgb(61,88,159);
-    text-shadow: 4px 4px 4px rgb(33,58,113);
+    color: rgb(255, 203, 3);
+    -webkit-text-stroke: 5px rgb(61, 88, 159);
+    text-shadow: 4px 4px 4px rgb(33, 58, 113);
 }
+
 #finder_input {
     background-color: rgb(235, 206, 91);
     width: 200px;
@@ -32,37 +34,46 @@ h1 {
     border: solid 2px darkred;
     border-radius: 25px;
 }
+
 body {
     display: flex;
     flex-direction: column;
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 .bg {
     background-color: rgb(50, 52, 53);
     min-height: 80vh;
 }
+
 .d_flex {
     display: flex;
 }
+
 .d_block {
     display: block;
 }
+
 .d_flex_etc {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .d_none {
     display: none;
 }
+
 .p160 {
     padding-left: 160px;
     padding-right: 160px;
 }
+
 .color_none {
     color: rgba(255, 255, 255, 0);
 }
+
 .prevent_scrolling {
     overflow: hidden;
 }
@@ -80,12 +91,14 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 2;
 }
+
 .details_content {
     height: 300px;
     width: 150px;
     background-color: black;
     border-radius: 16px;
 }
+
 #loading_spinner {
     position: fixed;
     justify-content: center;
@@ -97,12 +110,14 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 2;
 }
+
 .single_card {
     padding: 16px;
     height: 660px;
     width: 540px;
     border-radius: 32px;
 }
+
 .single_card_header {
     padding-left: 16px;
     padding-right: 16px;
@@ -110,8 +125,8 @@ body {
     align-items: center
 }
 
-.headline_shiny{
-    color:rgb(255, 255, 255);
+.headline_shiny {
+    color: rgb(255, 255, 255);
     text-shadow: 2px 2px 4px rgb(121, 233, 253);
 }
 
@@ -119,36 +134,43 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
 }
+
 .single_card_index {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
 }
+
 .nav_aria {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
 }
+
 .single_pokePic {
     width: 240px;
     filter: drop-shadow(8px 8px 12px rgb(0, 0, 0));
     transition: scale 125ms;
 }
+
 .single_pokePic:hover {
     cursor: pointer;
     scale: 1.1;
     overflow: hidden;
 }
+
 .arrow_btn {
     width: 40px;
     filter: drop-shadow(8px 8px 12px rgb(0, 0, 0));
     transition: scale 125ms;
 }
+
 .arrow_btn:hover {
     cursor: pointer;
     scale: 1.1;
     overflow: hidden;
 }
+
 .popup {
     position: absolute;
     top: 192px;
@@ -159,50 +181,58 @@ body {
     animation: popup 3s ease-in-out;
     opacity: 0;
 }
+
 .poke_infos {
     height: 218px;
     padding: 16px;
     border-radius: 16px;
     background-color: rgba(255, 255, 255, 0.2);
 }
+
 .stats_hl {
     padding: 12px;
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 24px;
     transition: background-color 125ms;
 }
+
 .stats_hl:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.8);
 
 }
+
 .stats_content {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .card_nav {
     display: flex;
     justify-content: space-around;
 }
+
 .single_sound {
     width: 360px;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
+
 audio {
     opacity: 0.4;
     height: 32px;
     width: 240px;
     transition: opacity 125ms;
 }
+
 audio:hover {
     opacity: 0.8;
 }
 
 /* SPECIAL STYLES */
-.general_content{
+.general_content {
     display: flex;
     justify-content: center;
 }
@@ -213,52 +243,64 @@ audio:hover {
     flex-flow: row wrap;
     max-width: 1440px;
 }
+
 .pokeCard {
     border: solid 2px gray;
     border-radius: 8px;
     padding: 16px;
     margin: 16px 0;
 }
+
 .pokeCard:hover {
     cursor: pointer;
+
     .pokePic {
         scale: 1.1;
         overflow: hidden;
     }
 }
+
 .card_header {
     align-items: center;
-    justify-content: space-between;}
+    justify-content: space-between;
+}
+
 .single_index {
     align-self: flex-start;
     color: rgba(0, 0, 0, 0.6);
 }
+
 .pokeCard h2 {
     font-size: 16px;
     text-align: center;
     color: rgba(0, 0, 0, 0.6);
 }
+
 .close_btn {
     font-size: 32px;
     transition: scale 125ms;
 }
+
 .close_btn:hover {
     cursor: pointer;
     scale: 1.4;
     overflow: hidden;
 }
+
 .pokePic {
     height: 150px;
     overflow: hidden;
     filter: drop-shadow(8px 8px 12px rgb(0, 0, 0));
     transition: scale 125ms;
 }
+
 .morePkmn {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 32px;
 }
+
 #more_pkmn {
     justify-content: space-between;
     background-color: rgb(235, 206, 91);
@@ -272,14 +314,17 @@ audio:hover {
     color: darkslategray;
     transition: scale 125ms;
 }
+
 #more_pkmn:hover {
     cursor: pointer;
     scale: 1.1;
     overflow: hidden;
 }
+
 .btn_text {
     font-size: 15px;
 }
+
 .pokeball {
     height: 55px;
 }
@@ -302,11 +347,13 @@ audio:hover {
 svg {
     background-color: #f9f9f900;
 }
+
 .bar {
     fill: rgba(3, 70, 8, 0.4);
     transition: fill 2s;
     border-radius: 4px;
 }
+
 .label {
     font-size: 12px;
     text-anchor: start;
@@ -316,15 +363,19 @@ svg {
     0% {
         opacity: 0;
     }
+
     25% {
         opacity: 0;
     }
+
     65% {
         opacity: 1;
     }
+
     85% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
