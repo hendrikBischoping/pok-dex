@@ -92,6 +92,10 @@
         height: 24px;
         width: 184px;
     }
+    .popup {
+        top: 75%;
+        left: 15%;
+    }
 }
 
 @media (max-width: 400px) {

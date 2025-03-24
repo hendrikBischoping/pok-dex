@@ -1,3 +1,11 @@
+/**
+ * 
+ * @param {object} allTypes - conteins all types of a single pokémon
+ * @param {string} pokeType  - a single type of a single pokémon
+ * @param {number} inDex - the index of a single pokémon (in pokédex) 
+ * @param {string} pokeName - the name of a single pokémon
+ * @returns - the HTML-template for the basic pokémon-infos on page
+ */
 function pokecardTemplate(allTypes, pokeType, inDex, pokeName) {
     return `
             <div class="pokeCard ${pokeType}_bg" name="${pokeName}" id="${pokeName}" onclick="renderPokeInfo(${inDex})">
@@ -14,6 +22,14 @@ function pokecardTemplate(allTypes, pokeType, inDex, pokeName) {
         `
 }
 
+/**
+ * 
+ * @param {number} inDex - the index of a single pokémon (in pokédex) 
+ * @param {object} allTypes - conteins all types of a single pokémon
+ * @param {string} pokeName - the name of a single pokémon
+ * @param {string} pokeType  - a single type of a single pokémon
+ * @returns - the HTML-template for the overlay that contains detailed pokémon-infos by clicking on a pokécard
+ */
 function singleCardTemplate(inDex, allTypes, pokeName, pokeType) {
     return `
             <div class="single_card ${pokeType}_bg" id="single_card_${inDex}" onclick="
@@ -31,9 +47,10 @@ function singleCardTemplate(inDex, allTypes, pokeName, pokeType) {
                     <img class="arrow_btn" onclick="goNext(${inDex})" src="./content/img/arrow-right.png" alt="arrow_right">    
                     <p class="popup">Click me!</p>
                     <p class="popup d_none">Tap me!</p>
-                    </div><div class="type_section">
-                    ${getTypesTemplate(allTypes)}
-                </div>
+                    </div>
+                    <div class="type_section">
+                        ${getTypesTemplate(allTypes)}
+                    </div>
                 <div class="poke_infos">
                     <nav class="card_nav">
                         <h3 class="stats_hl" onclick="toggleStats(${inDex})">Stats</h3>
@@ -62,6 +79,11 @@ function singleCardTemplate(inDex, allTypes, pokeName, pokeType) {
             </div>`
 }
 
+/**
+ * 
+ * @param {object} allTypes - conteins all types of a single pokémon
+ * @returns template of the type-imgs that appear in all pokécards and pokédetails
+ */
 function getTypesTemplate(allTypes) {
     let typesContent = "";
     for (let i = 0; i < allTypes.length; i++) {

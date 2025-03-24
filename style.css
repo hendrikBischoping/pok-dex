@@ -128,6 +128,7 @@ body {
 .headline_shiny {
     color: rgb(255, 255, 255);
     text-shadow: 2px 2px 4px rgb(121, 233, 253);
+    text-align: center;
 }
 
 .single_index {
@@ -173,8 +174,8 @@ body {
 
 .popup {
     position: absolute;
-    top: 192px;
-    left: 20%;
+    top: 80%;
+    left: 25%;
     padding: 8px;
     background-color: white;
     border-radius: 16px 0px 16px 16px;
@@ -235,11 +236,12 @@ audio:hover {
 .general_content {
     display: flex;
     justify-content: center;
+    padding-top: 32px;
 }
 
 #pokedex {
-    justify-content: space-between;
-    gap: 16px;
+    justify-content: center;
+    gap: 24px;
     flex-flow: row wrap;
     max-width: 1440px;
 }
@@ -248,7 +250,6 @@ audio:hover {
     border: solid 2px gray;
     border-radius: 8px;
     padding: 16px;
-    margin: 16px 0;
 }
 
 .pokeCard:hover {
@@ -337,7 +338,7 @@ audio:hover {
 }
 
 .type_svg {
-    height: 16px;
+    height: 20px;
     aspect-ratio: 1 / 1;
     padding: 12px;
     border-radius: 50%;

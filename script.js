@@ -2,6 +2,9 @@ let pokedex = [];
 let pokeData = [];
 let isOpened = false;
 
+/**
+ * asynchron function to initialize the page-content
+ */
 async function init() {
     toggleLoadingSpinner();
     await getData();
@@ -9,6 +12,9 @@ async function init() {
     toggleLoadingSpinner();
 }
 
+/**
+ * asynchron function to fetch data from two different APIs ans save them into variables
+ */
 async function getData() {
     try {
         let pkmnResponse = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=30&offset=${pokedex.length}`);
@@ -25,12 +31,19 @@ async function getData() {
     }
 }
 
+/**
+ * combines two arrays (pokeNames & pokeData) to a single one (pokedex)
+ * @param {object} pokeNames - contains the names of all loaded Pokémon (30 Pokémon at first)
+ */
 function combineArrays(pokeNames) {
     for (let i = 0; i < pokeNames.length; i++) {
-        pokedex.push({ name: pokeNames[i], data: pokeData[pokeData.length - 30 + i] });
+        pokedex.push({ name: pokeNames[i], data: pokeData[pokeData.length - 30 + i] });        
     }
 }
 
+/**
+ * renders all pokemon with basic-information into HTML
+ */
 function renderPokedex() {
     let pokedexRef = document.getElementById('pokedex');
     pokedexRef.innerHTML = "";
@@ -43,12 +56,18 @@ function renderPokedex() {
     }
 }
 
+/**
+ * toggles the visibility ob a loading spinner based on pokémon-rendering-progress
+ */
 function toggleLoadingSpinner() {
     let loadingSpinner = document.getElementById('loading_spinner');
     loadingSpinner.classList.toggle('d_none');
     loadingSpinner.classList.toggle('d_flex');
 }
 
+/**
+ * find Pokémon via search bar - starts search after typing at least three letters
+ */
 function findPokemon() {
     let finderInputRef = document.getElementById('finder_input');
     let pokeCardRef = document.getElementsByClassName('pokeCard');
@@ -64,6 +83,12 @@ function findPokemon() {
     }
 }
 
+/**
+ * starts finding pokemon in all pokécards if at least 3 letters are typed id
+ * @param {input field} finderInputRef 
+ * @param {all pokecards} pokeCardRef 
+ * @param {button} morePkmnRef to load nore pokémon gets invisible while finding
+ */
 function activateFind(finderInputRef, pokeCardRef, morePkmnRef) {
     for (let i = 0; i < pokeCardRef.length; i++) {
         pokeCardRef[i].classList.add('d_none');
@@ -78,6 +103,11 @@ function activateFind(finderInputRef, pokeCardRef, morePkmnRef) {
     openFoundPokemon(finderInputRef, foundPokemon)
 }
 
+/**
+ * 
+ * @param {inputfield} finderInputRef - to find pokémon by name
+ * @param {array} foundPokemon - gets all fond pokémon pushed
+ */
 function openFoundPokemon(finderInputRef, foundPokemon,) {
     pokedex.filter((pokemon) => {
         if (pokemon["name"]["name"].toLowerCase().includes(finderInputRef.value)) {
@@ -91,6 +121,10 @@ function openFoundPokemon(finderInputRef, foundPokemon,) {
     }
 }
 
+/**
+ * found pokémon get rendered into HTML as pokecards
+ * @param {array} foundPokemon - of found pokémon
+ */
 function showFoundPokemon(foundPokemon) {
     for (let k = 0; k < foundPokemon.length; k++) {
         let selfName = foundPokemon[k]['name']['name'];
@@ -100,6 +134,10 @@ function showFoundPokemon(foundPokemon) {
     }
 }
 
+/**
+ * when pokécard is clicked the pokémon information get delivered to the template-funktion 
+ * @param {number} inDex - the index of a single pokémon (in pokédex) 
+ */
 function renderPokeInfo(inDex) {
     isOpened = true;
     let pokeInfoRef = document.getElementById('poke_info')
@@ -120,6 +158,9 @@ function renderPokeInfo(inDex) {
     toggleScrolling();
 }
 
+/**
+ * disables or enables scrolling depending of if a pokécard-overlay is opened
+ */
 function toggleScrolling() {
     let content = document.getElementById('body');
     if (isOpened) {
@@ -127,12 +168,18 @@ function toggleScrolling() {
     } else { body.classList.remove('prevent_scrolling'); }
 }
 
+/**
+ * enables visibility of detailed pokémon information like stats od sounds
+ */
 function addPkmnInfo() {
     let pokeInfoRef = document.getElementById('poke_info');
     pokeInfoRef.classList.remove('d_none');
     pokeInfoRef.classList.add('d_flex');
 }
 
+/**
+ * disables visibility of detailed pokémon information like stats od sounds - ans allows scrolling again
+ */
 function removePkmnInfo() {
     isOpened = false;
     let pokeInfoRef = document.getElementById('poke_info');
@@ -141,6 +188,7 @@ function removePkmnInfo() {
     toggleScrolling()
 }
 
+/** replaces defaul-pokémon image by shiny-pokémon image on click */
 function toggleSinglePokePic(inDex) {
     let singlePokePic = document.getElementById(`pokePic${inDex}`);
     let singleShinyPokePic = document.getElementById(`shinyPokePic${inDex}`);
@@ -152,6 +200,10 @@ function toggleSinglePokePic(inDex) {
     singleHeadlineShiny.classList.toggle('d_none')
 }
 
+/**
+ * browses the details of the next pokémon within the opened overlay depenting of the index
+ * @param {number} inDex - the index of a single pokémon (in pokédex) 
+ */
 function goBack(inDex) {
     let flippedIndex = inDex - 1;
     if (flippedIndex < 0) {
@@ -160,6 +212,10 @@ function goBack(inDex) {
     renderPokeInfo(flippedIndex);
 }
 
+/**
+ * browses the details of the previous pokémon within the opened overlay depenting of the index
+ * @param {number} inDex - the index of a single pokémon (in pokédex) 
+ */
 function goNext(inDex) {
     let flippedIndex = inDex + 1;
     if (flippedIndex >= pokedex.length) {
@@ -168,10 +224,19 @@ function goNext(inDex) {
     renderPokeInfo(flippedIndex);
 }
 
+/**
+ * prevents event bubbling on html underneath an overlay
+ * @param {object} event 
+ */
 function stopBubbling(event) {
     event.stopPropagation();
+    
 }
 
+/**
+ * opens 'stats' in default and on click in pokédetails (when sounds opened)
+ * @param {*} inDex - the index of a single pokémon (in pokédex) 
+ */
 function toggleStats(inDex) {
     let statsTable = document.getElementById(`stats_table_${inDex}`)
     statsTable.classList.remove('d_none')
@@ -179,6 +244,10 @@ function toggleStats(inDex) {
     cardAudios.classList.add('d_none')
 }
 
+/**
+ * opend 'sonds' in pokédetails
+ * @param {*} inDex - the index of a single pokémon (in pokédex) 
+ */
 function toggleAudios(inDex) {
     let cardAudios = document.getElementById(`card_audios_${inDex}`)
     cardAudios.classList.remove('d_none')
@@ -186,6 +255,11 @@ function toggleAudios(inDex) {
     statsTable.classList.add('d_none')
 }
 
+/**
+ * 
+ * @param {*} inDex - the index of a single pokémon (in pokédex) 
+ * @returns - second pokémon type if
+ */
 function loadTypes(inDex) {
     let typesArray = pokedex[inDex]['data']['types'];
     if (typesArray.length > 1) {
@@ -194,6 +268,15 @@ function loadTypes(inDex) {
     };
 }
 
+/**
+ * renders individual stats of each pokémon into pokéinfo (overlay)
+ * @param {number} pokeHp - health points
+ * @param {number} pokeAttack - attack points
+ * @param {number} pokeDefense - defense points
+ * @param {number} pokeSpecialAttack - special attack points
+ * @param {number} pokeSpecialDefense - special defense points
+ * @param {number} pokeSpeed - speed points
+ */
 function renderStats(pokeHp, pokeAttack, pokeDefense, pokeSpecialAttack, pokeSpecialDefense, pokeSpeed) {
     var data = [pokeHp, pokeAttack, pokeDefense, pokeSpecialAttack, pokeSpecialDefense, pokeSpeed];
     const labels = ["HP", "ATTACK", "DEFENSE", "SPECIAL ATTACK", "SPECIAL DEFENSE", "SPEED"];
